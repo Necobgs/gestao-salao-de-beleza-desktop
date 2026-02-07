@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "electron/main.js",
   "description": "Sistema desktop de gestão de salão de beleza",
-  "author": "Emanuel Borges Albano e Gabriel Beck",
+  "author": "Emanuel Borges e Gabriel Beck",
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix renderer\" \"wait-on http://localhost:5173 && electron .\"",
     "build:renderer": "npm run build --prefix renderer",
@@ -27,7 +27,7 @@
     },
     "files": [
       "electron/**/*",
-      "renderer/out/**/*",
+      "renderer/dist/**/*",
       "node_modules/**/*",
       "package.json"
     ],
