@@ -1,0 +1,74 @@
+# ========================
+# Node / NPM / Yarn / PNPM
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ========================
+# Next.js (renderer/)
+# ========================
+renderer/.next/
+renderer/out/
+renderer/node_modules/
+renderer/.env*
+renderer/.vercel
+
+# ========================
+# Electron (main/)
+# ========================
+main/node_modules/
+main/dist/
+main/build/
+
+# ========================
+# Electron Builder
+# ========================
+dist/
+release/
+*.exe
+*.dmg
+*.AppImage
+*.snap
+*.zip
+
+# ========================
+# Logs
+# ========================
+logs/
+*.log
+
+# ========================
+# OS / Editor
+# ========================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# IntelliJ / WebStorm
+.idea/
+
+# ========================
+# Environment files
+# ========================
+.env
+.env.local
+.env.development
+.env.production
+
+# ========================
+# Cache / Temp
+# ========================
+.cache/
+.tmp/
+.temp/
+
+# ========================
+# Misc
+# ========================
+coverage/
