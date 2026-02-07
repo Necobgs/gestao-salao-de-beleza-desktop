@@ -1,9 +1,0 @@
-{
-  "watch": ["electron"],
-  "ignore": [
-    "renderer",
-    "renderer/**",
-    "node_modules"
-  ],
-  "ext": "js,json"
-}

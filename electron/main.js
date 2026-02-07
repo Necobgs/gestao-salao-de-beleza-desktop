@@ -1,27 +1,38 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
-function createWindow() {
+// Verifica se está em desenvolvimento
+const isDev = !app.isPackaged;
+
+const createWindow = () => {
   const win = new BrowserWindow({
-    width: 1200,
-    height: 800,
+    width: 800,
+    height: 600,
     webPreferences: {
-      contextIsolation: true
+      nodeIntegration: false,
+      contextIsolation: true,
     }
-  });
-
-  const isDev = !app.isPackaged;
+  })
 
   if (isDev) {
-    // DEV → Next.js
-    win.loadURL('http://localhost:3000');
-    win.webContents.openDevTools();
+    // No dev, aponta para o servidor do Next.js
+    win.loadURL('http://localhost:5173')
+    // Opcional: Abre o DevTools automaticamente
+    // win.webContents.openDevTools()
   } else {
-    // PROD → Next export estático
-    win.loadFile(
-      path.join(__dirname, '../renderer/out/index.html')
-    );
+    // No prod, carrega o arquivo estático gerado pelo 'next export'
+    win.loadFile(path.join(__dirname, '../renderer/dist/index.html'))
   }
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  createWindow()
+  
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  })
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') app.quit()
+})
