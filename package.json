@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix renderer\" \"wait-on http://localhost:5173 && electron .\"",
     "build:renderer": "npm run build --prefix renderer",
-    "build:electron": "tsc electron/main.ts --outDir electron/dist --module commonjs --target es6",
+    "build:electron": "tsc electron/main.js --outDir electron/dist --module commonjs --target es6",
     "dist": "npm run build:renderer && electron-builder"
   },
   "devDependencies": {

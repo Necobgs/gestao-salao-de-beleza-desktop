@@ -14,8 +14,8 @@ O projeto utiliza:
 
 gestao-salao-de-beleza-desktop/
 ├── electron/ # Processo principal do Electron
-│ ├── main.js
-│ └── preload.js
+│ ├── main.ts
+│ └── preload.ts
 │
 ├── renderer/ # Frontend Next.js (UI)
 │ ├── app/

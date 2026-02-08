@@ -9,18 +9,15 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
     }
   })
 
   if (isDev) {
-    // No dev, aponta para o servidor do Next.js
     win.loadURL('http://localhost:5173')
-    // Opcional: Abre o DevTools automaticamente
-    // win.webContents.openDevTools()
   } else {
-    // No prod, carrega o arquivo estático gerado pelo 'next export'
     win.loadFile(path.join(__dirname, '../renderer/dist/index.html'))
   }
 }
